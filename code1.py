@@ -44,7 +44,6 @@ def alert():
 def enroll():
     alive=[]
     for ip in range(2,5):
-#      print('10.1.1.' + str(ip))
       ipaddress='10.1.1.' + str(ip)
       cmd= 'ping -c3 -s1000 ' + str(ipaddress)+' | grep rtt | cut -f5 -d"/"'
       ps = subprocess.Popen(cmd,shell=True,stdout=subprocess.PIPE,stderr=subprocess.STDOUT)
@@ -61,15 +60,15 @@ def ascheck():
     if output!='':
 #    if output=='':
       print(output)
+#     Wifi associated LED
       GPIO.output(27, GPIO.HIGH)
-      print('WIFI Assoicated')
+      print('WIFI Associated')
     else:
-      print('No WIFI Assocation')
+      print('No WIFI Association')
       GPIO.output(27, GPIO.LOW)
 ps(vol)
 alive=[]
 while True:
-#    print (GPIO.input(18))
     ascheck()
     if GPIO.input(18)== True:
       alive=enroll()
