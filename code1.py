@@ -1,6 +1,7 @@
 #Written by Kenneth on 14August2019
 #Leader Raspberry Pi as AP
 #Volume setting:- amixer cset numid=1 100%
+#TX power:- iw dev wlan0 set txpower limit 1000
 
 import subprocess
 import time
@@ -24,6 +25,7 @@ pingref = 10.00
 #dbmref = 10
 
 vol = 'amixer cset numid=1 100%'
+txpower = 'iw dev wlan0 set txpower limit 1000'
 #cmd0= 'ping -c3 -s1000 10.1.1.2 | grep rtt | cut -f5 -d"/"'
 #cmd1= 'ping -c3 10.1.1.2 | grep received | cut -f4 -d" "'
 
@@ -66,6 +68,8 @@ def ascheck():
     else:
       print('No WIFI Association')
       GPIO.output(27, GPIO.LOW)
+
+ps(txpower)
 ps(vol)
 alive=[]
 while True:
