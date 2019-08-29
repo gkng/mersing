@@ -60,8 +60,10 @@ def ascheck():
     cmd= 'iw wlan0 station dump'
     output=ps(cmd)
     if output!='':
+
 #    if output=='':
-      print(output)
+#      print(output)
+
 #     Wifi associated LED
       GPIO.output(27, GPIO.HIGH)
       print('WIFI Associated')
@@ -85,7 +87,7 @@ while True:
       output = ps(cmd0)
       if output == '':
          output=1000
-      print(output)
+#      print(output)
       if float(output) > pingref:
          GPIO.output(17, GPIO.HIGH)
          print("Kayaker Out of Range")
