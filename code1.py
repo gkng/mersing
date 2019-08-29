@@ -21,8 +21,6 @@ GPIO.output(27, GPIO.LOW)
 #in range
 #dbmref = 100
 pingref = 10.00
-#trigger out of range
-#dbmref = 10
 
 vol = 'amixer cset numid=1 100%'
 txpower = 'iw dev wlan0 set txpower limit 1000'
